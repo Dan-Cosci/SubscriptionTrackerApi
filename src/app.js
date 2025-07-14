@@ -9,6 +9,7 @@ import errorMiddleware from "./middleware/error.middleware.js";
 import cookieParser from "cookie-parser";
 import morgan from "morgan";
 import arcjetMiddleware from "./middleware/arcjet.middleware.js";
+import workFlowRouter from "./routes/workFlow.routes.js";
 
 
 // Initialize express app
@@ -24,8 +25,9 @@ app.use(arcjetMiddleware);
 
 // routes
 app.use("/api/v1/auth", authRouter);
-app.use("/api/v1/subscriptions", subscriptionRouter);
 app.use("/api/v1/users", userRouter);
+app.use("/api/v1/subscriptions", subscriptionRouter);
+app.use("/api/v1/workflows", workFlowRouter);
   
 // Health check route
 app.listen(PORT||5001, async()=>{
